@@ -20,10 +20,10 @@ fmt-check: ## Check code formatting with ruff
 	uvx ruff format --check .
 
 test: ## Run tests
-	uvx pytest
+	uv run pytest
 
 test-ci: ## Run tests with coverage for CI
-	uvx pytest --cov=src --cov-report=xml --cov-report=html --cov-report=term --junit-xml=reports/pytest.xml --cov-report=html:reports/coverage
+	uv run pytest --cov=src --cov-report=xml --cov-report=html --cov-report=term --junit-xml=reports/pytest.xml --cov-report=html:reports/coverage
 
 clean: ## Clean up generated files
 	rm -rf .pytest_cache/
