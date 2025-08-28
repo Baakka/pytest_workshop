@@ -24,7 +24,11 @@ target-version = "py311"
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "I", "N", "UP", "YTT", "S", "BLE", "FBT", "B", "A", "COM", "C4", "DTZ", "T10", "EM", "EXE", "FA", "ISC", "ICN", "G", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET", "SLF", "SLOT", "SIM", "TID", "TCH", "INT", "ARG", "PTH", "TD", "FIX", "ERA", "PD", "PGH", "PL", "TRY", "FLY", "NPY", "PERF", "FURB", "LOG", "RUF"]
-ignore = ["S101", "T20", "FIX002", "TD002", "TD003", "PLR2004"]
+ignore = [
+    "S101",    # Use of assert (essential for pytest)
+    "PLR2004", # Magic values (common in test data)
+    "COM812",  # Trailing commas (conflicts with formatter)
+]
 
 [tool.pytest.ini_options]
 minversion = "7.0"
