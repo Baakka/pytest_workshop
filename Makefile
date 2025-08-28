@@ -30,5 +30,6 @@ clean: ## Clean up generated files
 	rm -rf reports/
 	rm -rf htmlcov/
 	rm -rf .coverage
+	rm -f coverage.xml
 	find . -type f -name "*.pyc" -delete
 	find . -type d -name "__pycache__" -delete

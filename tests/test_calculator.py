@@ -1,6 +1,7 @@
 """Tests for the calculator module."""
 
 import pytest
+
 from pytest_workshop.calculator import Calculator
 
 
@@ -47,12 +48,15 @@ class TestCalculator:
         assert self.calculator.power(3, 2) == 9
 
 
-@pytest.mark.parametrize("a,b,expected", [
-    (1, 2, 3),
-    (0, 0, 0),
-    (-1, 1, 0),
-    (10, -5, 5),
-])
+@pytest.mark.parametrize(
+    ("a", "b", "expected"),
+    [
+        (1, 2, 3),
+        (0, 0, 0),
+        (-1, 1, 0),
+        (10, -5, 5),
+    ],
+)
 def test_add_parametrized(a, b, expected):
     """Test addition with parametrized inputs."""
     calculator = Calculator()
