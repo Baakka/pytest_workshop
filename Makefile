@@ -5,7 +5,7 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
 init: ## Initialize the development environment
-	uv sync --dev
+	uv sync --dev --all-extras
 
 install: ## Install the project in development mode
 	uv pip install -e ".[dev]"
@@ -23,6 +23,7 @@ test: ## Run tests
 	uv run pytest
 
 test-ci: ## Run tests with coverage for CI
+	mkdir -p reports
 	uv run pytest --cov=src --cov-report=xml --cov-report=html --cov-report=term --junit-xml=reports/pytest.xml --cov-report=html:reports/coverage
 
 clean: ## Clean up generated files
