@@ -11,19 +11,19 @@ install: ## Install the project in development mode
 	uv pip install -e ".[dev]"
 
 lint: ## Run ruff linter
-	uv run ruff check .
+	uvx ruff check .
 
 fmt: ## Format code with ruff
-	uv run ruff format .
+	uvx ruff format .
 
 fmt-check: ## Check code formatting with ruff
-	uv run ruff format --check .
+	uvx ruff format --check .
 
 test: ## Run tests
-	uv run pytest
+	uvx pytest
 
 test-ci: ## Run tests with coverage for CI
-	uv run pytest --cov=src --cov-report=xml --cov-report=html --cov-report=term --junit-xml=reports/pytest.xml --cov-report=html:reports/coverage
+	uvx pytest --cov=src --cov-report=xml --cov-report=html --cov-report=term --junit-xml=reports/pytest.xml --cov-report=html:reports/coverage
 
 clean: ## Clean up generated files
 	rm -rf .pytest_cache/
